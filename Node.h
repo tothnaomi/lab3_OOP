@@ -6,6 +6,7 @@ class Node
 	A node has 3 attributes: the value, a pointer to the left child (which is a node) and a pointer to the right child 
 	(which is also a node). When a node does not have a right or a left child than the pointer will be NULL.
 	A node which has 0 child is named leaf. The left and the right pointer of a leaf will be NULL. */
+public:
 	int value;
 	Node* left_child;
 	Node* right_child;

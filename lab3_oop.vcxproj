@@ -138,7 +138,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="tests.cpp" />
     <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
