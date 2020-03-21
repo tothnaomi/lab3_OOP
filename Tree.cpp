@@ -7,8 +7,7 @@ using namespace std;
 
 Node* Tree::get_node(int v)
 {
-	Node* new_node = new Node;
-	new_node->value = v;
+	Node* new_node = new Node(v);
 	new_node->left_child = nullptr;
 	new_node->right_child = nullptr;
 
