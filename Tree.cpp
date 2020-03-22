@@ -5,6 +5,13 @@
 #include <vector>
 using namespace std;
 
+Node* Tree::FindMin(Node* root)
+{
+	int min = root->right_child->value;
+	if (root->right_child->left_child == nullptr) return root->right_child;
+}
+
+
 Node* Tree::get_node(int v)
 {
 	Node* new_node = new Node(v);
@@ -52,8 +59,20 @@ void Tree::delete_node(int v, Node* root)
 	else if (delete_node->left_child == nullptr)
 	{
 		Node* temp = delete_node;
-		delete delete_node; 
-
+		delete_node = delete_node->right_child;
+		delete temp;
+	}
+	else if (delete_node->right_child == nullptr)
+	{
+		Node* temp = delete_node;
+		delete_node = delete_node->left_child;
+		delete temp;
+	}
+	else
+	{
+		Node* temp = FindMin(delete_node->right_child);
+		delete_node->value = temp->value;
+		//delete_node(temp->value, delete_node->right_child);
 	}
 	
 }

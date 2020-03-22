@@ -18,6 +18,8 @@ public:
 	/* this will create a new node in the heap memory. */
 	Node* get_node(int v);
 
+	Node* FindMin(Node* root);
+
 	Node* search_node(int v, Node* root);
 	
 	/* inserts a node in the binary search tree so that the relation of it didn't change. 
