@@ -49,6 +49,12 @@ void Tree::delete_node(int v, Node* root)
 	{
 		delete delete_node; // delete from heap memory
 	}
+	else if (delete_node->left_child == nullptr)
+	{
+		Node* temp = delete_node;
+		delete delete_node; 
+
+	}
 	
 }
 
