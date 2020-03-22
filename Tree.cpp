@@ -5,12 +5,6 @@
 #include <vector>
 using namespace std;
 
-Node* Tree::FindMin(Node* root)
-{
-	int min = root->right_child->value;
-	if (root->right_child->left_child == nullptr) return root->right_child; 
-}
-
 Node* Tree::get_node(int v)
 {
 	Node* new_node = new Node(v);
@@ -55,25 +49,9 @@ void Tree::delete_node(int v, Node* root)
 	{
 		delete delete_node; // delete from heap memory
 	}
-	else if (root->left_child == nullptr)
-	{
-		Node* temp = root;
-		root = root->right_child;
-		delete temp;
-	}
-	else if (root->right_child == nullptr)
-		{
-			Node* temp = root;
-			root = root->left_child;
-			delete temp;
-		}
-	else
-	{
-		Node* temp = FindMin(root->right_child);
-		root->value = temp->value;
-		//delete_node(temp->value, root->right_child);
-	}
+	
 }
+
 
 int Tree::count_edges()
 {

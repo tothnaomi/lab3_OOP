@@ -18,8 +18,6 @@ public:
 	/* this will create a new node in the heap memory. */
 	Node* get_node(int v);
 
-	Node* FindMin(Node* root);
-
 	Node* search_node(int v, Node* root);
 	
 	/* inserts a node in the binary search tree so that the relation of it didn't change. 
@@ -33,6 +31,8 @@ public:
 	when we want to delete a node with 2 children. 
 	https://youtu.be/gcULXE7ViZw */
 	void delete_node(int v, Node* root);
+
+
 
 	/* counts how many nodes in a tree are. We can count how many elements in our vector are (this will be
 	the number of nodes).
