@@ -23,6 +23,21 @@ string postorder()
 
 void testAll()
 {
+
+	/*
+	
+					12
+                 /       \
+                5        17
+             /     \     /  \
+			3		7   13   20
+           /        \    \    /
+          1         9     14  18
+				   /  \
+                 8      11
+			
+	*/
+
 	Node root = Node(12);
 	// right subtree of the root 
 	Node n1 = Node(17);
@@ -55,11 +70,9 @@ void testAll()
 
 	// tests 
 	tree.delete_node(14, &root);
-	//assert(n2->right_child == nullptr);
 	assert(tree.search_node(14, &root) == nullptr);
 	tree.delete_node(20, &root);
-	//assert(n1->right_child == n5);
 	assert(tree.search_node(20, &root) == nullptr);
 
-
+	tree.insert(20, &root);
 }
