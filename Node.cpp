@@ -14,8 +14,8 @@ Node::Node(int val)
 }
 
 
-std::string Node::inorder(Node* n) /* Given a binary tree, print its nodes in inorder*/
-{
+//std::string Node::inorder(Node* n) /* Given a binary tree, print its nodes in inorder*/
+/*{
 
     if (n == NULL)
         return 0;
@@ -25,11 +25,11 @@ std::string Node::inorder(Node* n) /* Given a binary tree, print its nodes in in
 	std::cout << n->Node * root << " ";
 
 	std::string inorder(n  -> Node::right_child);
+	
+}*/
 
-}
-
-std::string Node::preorder(Node* n) /* Given a binary tree, print its nodes in postorder traversal. */
-{
+//std::string Node::preorder(Node* n) /* Given a binary tree, print its nodes in postorder traversal. */
+/*{
 	if (n == NULL)
 		return 0;
 
@@ -39,10 +39,10 @@ std::string Node::preorder(Node* n) /* Given a binary tree, print its nodes in p
 
 	std::string inorder(n->Node::right_child);
 
-}
+}*/
 
-std::string Node::postorder(Node* n)  /* Given a binary tree, print its nodes in preorder*/
-{
+//std::string Node::postorder(Node* n)  /* Given a binary tree, print its nodes in preorder*/
+/*{
 	if (n == NULL)
 		return 0;
 
@@ -52,12 +52,12 @@ std::string Node::postorder(Node* n)  /* Given a binary tree, print its nodes in
 
 	std::cout << n->Node * root << " ";
 
-}
+}*/
 
 
-int Node::get_value()
+int Node::get_value(Node* node)
 {
-	return this->value;
+	return node->value;
 }
 
 

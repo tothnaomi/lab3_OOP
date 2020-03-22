@@ -19,7 +19,7 @@ public:
 	Node(int val);
 
 	/* getter for the value attribute */
-	int get_value();
+	int get_value(Node* node);
 
 	/* setter for the value */
 	void set_value(int val);
