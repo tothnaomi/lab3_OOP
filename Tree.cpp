@@ -5,10 +5,11 @@
 #include <vector>
 using namespace std;
 
-Node* Tree::FindMin(Node* root)
+Node* Tree::FindMin(Node* node)
 {
-	int min = root->right_child->value;
-	if (root->right_child->left_child == nullptr) return root->right_child;
+	//node is the right child of the node in which right subtree we are searching for minimum. 
+	if (node->left_child == nullptr) return node;
+	else return FindMin(node->left_child);
 }
 
 
@@ -50,31 +51,30 @@ Node* Tree::search_node(int v, Node* root)
 
 void Tree::delete_node(int v, Node* root)
 {
-	Node* delete_node = search_node(v, root);
+	Node* d_node = search_node(v, root);
 	// we found the node which we want to delete.
-	if (delete_node->left_child == nullptr && delete_node->right_child == nullptr)
+	if (d_node->left_child == nullptr && d_node->right_child == nullptr)
 	{
-		delete delete_node; // delete from heap memory
+		delete d_node; // delete from heap memory
 	}
-	else if (delete_node->left_child == nullptr)
+	else if (d_node->left_child == nullptr)
 	{
-		Node* temp = delete_node;
-		delete_node = delete_node->right_child;
+		Node* temp = d_node;
+		d_node = d_node->right_child;
 		delete temp;
 	}
-	else if (delete_node->right_child == nullptr)
+	else if (d_node->right_child == nullptr)
 	{
-		Node* temp = delete_node;
-		delete_node = delete_node->left_child;
+		Node* temp = d_node;
+		d_node = d_node->left_child;
 		delete temp;
 	}
 	else
 	{
-		Node* temp = FindMin(delete_node->right_child);
-		delete_node->value = temp->value;
-		//delete_node(temp->value, delete_node->right_child);
+		Node* temp = FindMin(d_node->right_child);
+		d_node->value = temp->value;
+		delete_node(temp->value, d_node->right_child);
 	}
-	
 }
 
 
