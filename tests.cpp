@@ -2,7 +2,9 @@
 #include <string>
 #include "Node.h"
 #include "Tree.h"
+#include "tests.h"
 
+using namespace std;
 
 string inorder()
 {
@@ -41,12 +43,23 @@ void testAll()
 	// setting the pointers to create the tree
 	root.set_pointers(&n1, &n6);
 	n1.set_pointers(&n4, &n2);
-	n2.set_pointers(nullptr, &n3);
+	n2.set_pointers(&n3, nullptr);
 	n4.set_pointers(nullptr, &n5);
 	n6.set_pointers(&n7, &n11);
 	n11.set_pointers(nullptr, &n12);
 	n7.set_pointers(&n8, nullptr);
 	n8.set_pointers(&n9, &n10);
+
+	// tree
+	Tree tree = Tree(&root);
+
+	// tests 
+	tree.delete_node(14, &root);
+	//assert(n2->right_child == nullptr);
+	assert(tree.search_node(14, &root) == nullptr);
+	tree.delete_node(20, &root);
+	//assert(n1->right_child == n5);
+	assert(tree.search_node(20, &root) == nullptr);
 
 
 }

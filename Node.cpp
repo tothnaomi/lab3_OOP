@@ -46,11 +46,11 @@ std::string Node::postorder(Node* n)  /* Given a binary tree, print its nodes in
 	if (n == NULL)
 		return 0;
 
-	std::string inorder(n -> Node::left_child);
+	std::string inorder(n->Node::left_child);
 
-	std::string inorder(n ->Node::right_child);
+	std::string inorder(n->Node::right_child);
 
-	std::cout << n->Node* root << " ";
+	std::cout << n->Node * root << " ";
 
 }
 
@@ -59,7 +59,6 @@ int Node::get_value()
 {
 	return this->value;
 }
-
 
 
 void Node::set_pointers(Node* right_ptr, Node* left_ptr)

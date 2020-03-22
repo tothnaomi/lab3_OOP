@@ -11,9 +11,14 @@ class Tree
 	/* I will use linked list and I will store the address of the root node because
 	this way I will have access to the every element of the tree (we have pointrs to left and right 
 	child). */
-	Node* root = nullptr; //this will be null at the beginning because we are creating an empty tree.
 
 public:
+
+	Tree(Node* node)
+	{
+		Node* root;
+		root = node;
+	}
 
 	/* this will create a new node in the heap memory. */
 	Node* get_node(int v);

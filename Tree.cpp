@@ -41,12 +41,13 @@ void Tree::insert(int v, Node* root)
 
 Node* Tree::search_node(int v, Node* root)
 {
-	if (root->value = v) return root;
+	if (root->value == v) return root;
 	else
 	{
 		if (v < root->value) search_node(v, root->left_child);
-		else search_node(v, root->right_child->right_child);
+		else search_node(v, root->right_child);
 	}
+	return nullptr; // if the node is not in the tree
 }
 
 void Tree::delete_node(int v, Node* root)
@@ -81,9 +82,11 @@ void Tree::delete_node(int v, Node* root)
 int Tree::count_edges()
 {
 	//TO IMPLEMENT
+	return 0;
 }
 
 int Tree::height()
 {
 	//toooo implemeent
+	return 0;
 }
