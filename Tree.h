@@ -29,11 +29,11 @@ public:
 
 	/* deletes a node from a binary search tree.
 	We have to be carefull with the pointers !!!
-	3 cases: when we delete a leaf node(without child), when we are deleting a node with 1 child and the last case is
-	when we want to delete a node with 2 children. 
+	3 cases: when we delete a leaf node(without child), when we are deleting a node with 1 child (practically we have
+	2 cases here: when the node has left child and when the node has right child) and the last case is when we want 
+	to delete a node with 2 children. 
 	https://youtu.be/gcULXE7ViZw */
 	void delete_node(int v, Node* root);
-
 
 
 	/* counts how many nodes in a tree are. We can count how many elements in our vector are (this will be

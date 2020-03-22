@@ -52,7 +52,7 @@ Node* Tree::search_node(int v, Node* root)
 void Tree::delete_node(int v, Node* root)
 {
 	Node* d_node = search_node(v, root);
-	// we found the node which we want to delete.
+	
 	if (d_node->left_child == nullptr && d_node->right_child == nullptr)
 	{
 		delete d_node; // delete from heap memory
