@@ -13,48 +13,38 @@ Node* Tree::FindMin(Node* node)
 }
 
 
-/*Node* Tree::get_node(int v)
-{
-	Node* new_node = new Node(v);
-	new_node->left_child = nullptr;
-	new_node->right_child = nullptr;
-
-	return new_node; // this is a pointer to the new node created in this function
-}*/
-
 void Tree::insert(int v, Node* root)
 {
 	Node* crt = root;
 	Node* parent = root;
-	bool is_in_tree = false;
-	while(not is_in_tree && crt != nullptr)
+	bool exists = false;
+	
+	while (crt && !exists)
 	{
-		if (crt->value == v)
-			is_in_tree = true;
+		if (crt->value == v) exists = true;
 		else
 		{
 			parent = crt;
 			if (v < crt->value)
-			{
 				crt = crt->left_child;
-			}
 			else crt = crt->right_child;
 		}
 	}
-	if (not is_in_tree)
+
+	if (!exists)
 	{
 		Node* new_node = new Node(v);
-		if (crt->value < v) new_node->left_child = crt;
-		else new_node->right_child = crt;
-		if (v < parent->value) parent->left_child = crt;
-		else parent->right_child = crt; 
+		if (v < parent->value)
+			parent->left_child = new_node;
+		else
+			parent->right_child = new_node;
 	}
 }
 
 bool Tree::in_tree(int v, Node* root)
 {
 	bool exists = false;
-	while (exists && root != nullptr)
+	while (exists == false && root)
 	{
 		if (root->value == v) exists = true;
 		else if (v < root->value)
@@ -69,18 +59,18 @@ void Tree::delete_node(int v, Node* root)
 {
 	Node* current = root;
 	Node* parent = root;
-	while (current && current->value != v)
+	while (current != nullptr && current->value != v)
 	{
 		parent = current;
 		if (current->value < v)
-			current = current->left_child;
+			current = current->right_child;
 		else
 		{
-			current = current->right_child;
+			current = current->left_child;
 		}
 	}
 
-	if (current)
+	if (current != nullptr)
 	{
 		//case 1
 		if (current->right_child == nullptr && current->left_child == nullptr)

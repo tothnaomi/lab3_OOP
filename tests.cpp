@@ -37,46 +37,48 @@ void testAll()
                  8      11
 			
 	*/
-
-	Node root = Node(12);
-	// right subtree of the root 
-	Node n1 = Node(17);
-	Node n2 = Node(13);
-	Node n3 = Node(14);
-	Node n4 = Node(20);
-	Node n5 = Node(18);
 	
-	// left subtree of the root
-	Node n6 = Node(5);
-	Node n7 = Node(7);
-	Node n8 = Node(9);
-	Node n9 = Node(11);
-	Node n10 = Node(8);
-	Node n11 = Node(3);
-	Node n12 = Node(1);
+	Node* n1 = new Node(12); // this is the root 
+	Node* n2 = new Node(17);
+	Node* n3 = new Node(13);
+	Node* n4 = new Node(14);
+	Node* n5 = new Node(20);
+	Node* n6 = new Node(18);
+	Node* n7 = new Node(5);
+	Node* n8 = new Node(3);
+	Node* n9 = new Node(1);
+	Node* n10 = new Node(7);
+	Node* n11 = new Node(9);
+	Node* n12 = new Node(8);
+	Node* n13 = new Node(11);
 
-	// setting the pointers to create the tree
-	root.set_pointers(&n1, &n6);
-	n1.set_pointers(&n4, &n2);
-	n2.set_pointers(&n3, nullptr);
-	n4.set_pointers(nullptr, &n5);
-	n6.set_pointers(&n7, &n11);
-	n11.set_pointers(nullptr, &n12);
-	n7.set_pointers(&n8, nullptr);
-	n8.set_pointers(&n9, &n10);
+	//setting the pointers
+	n1->set_pointers(n2, n7);
+	n2->set_pointers(n5, n3);
+	n3->set_pointers(n4, nullptr);
+	n5->set_pointers(nullptr, n6);
+	n7->set_pointers(n10, n8);
+	n8->set_pointers(nullptr, n9);
+	n10->set_pointers(n11, nullptr);
+	n11->set_pointers(n13, n12);
 
-	// tree
-	Tree tree = Tree(&root);
+	n9->set_pointers(nullptr, nullptr); 
+	n12->set_pointers(nullptr, nullptr);
+	n13->set_pointers(nullptr, nullptr);
+	n4->set_pointers(nullptr, nullptr);
+	n6->set_pointers(nullptr, nullptr);
 
-	Node* min = tree.FindMin(&n1);
-	assert(min->value == 13);
-	min = tree.FindMin(&n7);
-	assert(min->value == 7);
+	Tree tree = Tree(n1);
 
-	assert(tree.count_nodes(&root) == 13);
-	//tree.delete_node(20, &root);
+	assert(tree.count_nodes(n1) == 13);
 
-	Node* node_found = tree.search_node(20, &root);
-	assert(node_found = &n4);
+	tree.delete_node(13, n1);
+	tree.delete_node(8, n1);
 
+	assert(tree.in_tree(13, n1) == false);
+	assert(tree.in_tree(20, n1) == true);
+	assert(tree.in_tree(8, n1) == false);
+
+	tree.insert(2, n1);
+	assert(tree.in_tree(2, n1) == true);
 }
