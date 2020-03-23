@@ -73,10 +73,10 @@ void testAll()
 	min = tree.FindMin(&n7);
 	assert(min->value == 7);
 
-	/*assert(tree.count_nodes == 13);
-	tree.delete_node(20, &root);
-	assert(tree.count_nodes == 12);*/
+	assert(tree.count_nodes(&root) == 13);
+	//tree.delete_node(20, &root);
 
 	Node* node_found = tree.search_node(20, &root);
 	assert(node_found = &n4);
+
 }

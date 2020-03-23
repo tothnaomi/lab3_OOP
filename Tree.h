@@ -30,7 +30,7 @@ public:
 	/* inserts a node in the binary search tree so that the relation of it didn't change. 
 	v is the value of the node and the tree is the node. 
 	We have to be carefull with the pointers !!! */
-	Node* insert(int v, Node* root);
+	void insert(int v, Node* root);
 
 	/* deletes a node from a binary search tree.
 	We have to be carefull with the pointers !!!
@@ -40,6 +40,7 @@ public:
 	https://youtu.be/gcULXE7ViZw */
 	void delete_node(int v, Node* root);
 
+	bool in_tree(int v, Node* root);
 
 	/* counts how many nodes in a tree are. We can count how many elements in our vector are (this will be
 	the number of nodes).

@@ -13,72 +13,113 @@ Node* Tree::FindMin(Node* node)
 }
 
 
-Node* Tree::get_node(int v)
+/*Node* Tree::get_node(int v)
 {
 	Node* new_node = new Node(v);
 	new_node->left_child = nullptr;
 	new_node->right_child = nullptr;
 
 	return new_node; // this is a pointer to the new node created in this function
-}
+}*/
 
-Node* Tree::insert(int v, Node* root)
+void Tree::insert(int v, Node* root)
 {
-	if (root == nullptr)
+	Node* crt = root;
+	Node* parent = root;
+	bool is_in_tree = false;
+	while(not is_in_tree && crt != nullptr)
+	{
+		if (crt->value == v)
+			is_in_tree = true;
+		else
+		{
+			parent = crt;
+			if (v < crt->value)
+			{
+				crt = crt->left_child;
+			}
+			else crt = crt->right_child;
+		}
+	}
+	if (not is_in_tree)
 	{
 		Node* new_node = new Node(v);
-		root = new_node;
+		if (crt->value < v) new_node->left_child = crt;
+		else new_node->right_child = crt;
+		if (v < parent->value) parent->left_child = crt;
+		else parent->right_child = crt; 
 	}
-	else
-	{
-		if (v <= root->value)
-			insert(v, root->left_child);
-		else
-			insert(v, root->right_child);
-	}
-	return root;
 }
 
-Node* Tree::search_node(int v, Node* root)
+bool Tree::in_tree(int v, Node* root)
 {
-	if (root->value == v || root == nullptr) return root;
-	else
+	bool exists = false;
+	while (exists && root != nullptr)
 	{
-		if (v < root->value) search_node(v, root->left_child);
-		else search_node(v, root->right_child);
+		if (root->value == v) exists = true;
+		else if (v < root->value)
+			root = root->left_child;
+		else
+			root = root->right_child;
 	}
+	return exists; 
 }
 
 void Tree::delete_node(int v, Node* root)
 {
-	Node* d_node = search_node(v, root);
-	
-	if (d_node->left_child == nullptr && d_node->right_child == nullptr)
+	Node* current = root;
+	Node* parent = root;
+	while (current && current->value != v)
 	{
-		delete d_node; // delete from heap memory
+		parent = current;
+		if (current->value < v)
+			current = current->left_child;
+		else
+		{
+			current = current->right_child;
+		}
 	}
-	else if (d_node->left_child == nullptr)
+
+	if (current)
 	{
-		Node* temp = d_node;
-		d_node = d_node->right_child;
-		delete temp;
-	}
-	else if (d_node->right_child == nullptr)
-	{
-		Node* temp = d_node;
-		d_node = d_node->left_child;
-		delete temp;
-	}
-	else
-	{
-		Node* temp = FindMin(d_node->right_child);
-		d_node->value = temp->value;
-		delete_node(temp->value, d_node->right_child);
+		//case 1
+		if (current->right_child == nullptr && current->left_child == nullptr)
+		{
+			if (parent->left_child == current)
+				parent->left_child = nullptr;
+			else
+				parent->right_child = nullptr;
+			delete current;
+		}
+		//case 2
+		else if (current->left_child != nullptr && current->right_child == nullptr)
+		{
+			if (parent->left_child == current)
+				parent->left_child = current->left_child;
+			else
+				parent->right_child = current->left_child;
+			delete current;
+		}
+		else if (current->left_child == nullptr && current->right_child != nullptr)
+		{
+			if (parent->left_child == current)
+				parent->left_child = current->right_child;
+			else
+				parent->right_child = current->right_child;
+			delete current;
+		}
+		//case 3
+		else if (current->left_child != nullptr && current->right_child != nullptr)
+		{
+			Node* min = FindMin(current->right_child);
+			current->value = min->value;
+			delete_node(current->value, current->right_child);
+		}
 	}
 }
 
 
-int Tree::count_nodes(Node *root)
+int Tree::count_nodes(Node* root)
 {
 	int sum = 0;
 	if (root != nullptr)
