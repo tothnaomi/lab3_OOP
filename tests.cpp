@@ -6,21 +6,6 @@
 
 using namespace std;
 
-/*string inorder()
-{
-
-}
-
-string preorder()
-{
-
-}
-
-string postorder()
-{
-
-}*/
-
 void testAll()
 {
 

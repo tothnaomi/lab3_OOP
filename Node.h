@@ -11,6 +11,7 @@ public:
 	int value;
 	Node* left_child;
 	Node* right_child;
+	Node* n;
 
 public:
 
@@ -21,28 +22,23 @@ public:
 	/* getter for the value attribute */
 	int get_value(Node* node);
 
-	/* setter for the value */
-	void set_value(int val);
-
 	/* setter for the pointers of an Object */
 	void set_pointers(Node* right_ptr, Node* left_ptr);
 
 	/*Traverse the tree in an inorder way:
 	The inorder traversal of a binary search tree involves visiting each of the nodes in the tree in the order:
 	Traverse the left subtree -> Visit the root -> Traverse the right subtree*/
-	std::string inorder(Node* n);
+	void inorder(Node* n);
 
 	/*Traverse the tree in a preorder way:
 	The inorder traversal of a binary search tree involves visiting each of the nodes in the tree in the order:
 	Visit the root -> Traverse the left subtree -> Traverse the right subtree */
-	std::string preorder(Node* n);
+	void preorder(Node* n);
 
 	/*Traverse the tree in a postorder way:
 	The inorder traversal of a binary search tree involves visiting each of the nodes in the tree in the order:
 	Traverse the left subtree -> Traverse the right subtree -> Visit the root */
-	std::string postorder(Node* n);
-
-	int countNodes(Node* n);
+	void postorder(Node* n);
 
 
 };

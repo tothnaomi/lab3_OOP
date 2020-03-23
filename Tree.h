@@ -49,11 +49,11 @@ public:
 	If the tree is empty it will return 0.
 	We can verify before we go along the vector if the binary tree is full (2^n - 1 = number of nodes), 
 	because than the number of edges will be 2^n - 2 .*/
-	int count_edges();
+	int count_edges(Node* root);
 
 	/* returns the height of the tree.
 	If the tree is empty or it contains just one node (the root) it will return 0.
 	The height is [log2(n)] (the int part of log2(n)) if the binary tree is complete (perfect) and has n nodes. 
 	This Link should help: https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/ */
-	int height();
+	int height(Node* root);
 };

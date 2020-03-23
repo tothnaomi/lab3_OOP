@@ -121,8 +121,43 @@ int Tree::count_nodes(Node* root)
 	return sum;
 }
 
-int Tree::height()
+int Tree::count_edges(Node* root)
 {
-	// TO DO 
+	int count = 0;
+	int sum = 0;
+	if (root != nullptr)
+	{
+		sum++;
+		sum = sum + count_nodes(root->left_child);
+		sum = sum + count_nodes(root->right_child);
+	}
+	count = sum - 1;
+	return count;
+}
+
+
+int Tree::height(Node* root)
+{
+	int left_height, right_height;
+
+	if (root = nullptr)
+
+		return -1;
+
+	
+	left_height = height(root->left_child);
+
+	right_height = height(root->right_child);
+
+	
+
+	if (left_height > right_height)
+
+		return left_height+1;
+
+	else
+
+		return right_height+1;
+
 	return 0;
 }
