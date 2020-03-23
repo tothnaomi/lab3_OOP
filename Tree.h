@@ -44,7 +44,7 @@ public:
 	/* counts how many nodes in a tree are. We can count how many elements in our vector are (this will be
 	the number of nodes).
 	If the tree is empty the number of nodes will be 0.*/
-	int count_nodes();
+	int count_nodes(Node* root);
 
 	/* counts how many edges in a tree are. We have to go along the vector and if none of the pointers of the current node
 	are nullptr than we can increase the sum with 2 (because one node has 2 children -> 2 edges).

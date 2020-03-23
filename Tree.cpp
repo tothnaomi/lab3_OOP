@@ -31,10 +31,8 @@ void Tree::insert(int v, Node* root)
 	else
 	{
 		if (v <= root->value)
-			//root->left_child = insert(v, root->left_child);
 			insert(v, root->left_child);
 		else
-			//root->right_child = insert(v, root->right_child);
 			insert(v, root->right_child);
 	}
 }
@@ -79,10 +77,12 @@ void Tree::delete_node(int v, Node* root)
 }
 
 
-int Tree::count_edges()
+int Tree::count_nodes(Node *root)
 {
-	//TO IMPLEMENT
-	return 0;
+	if (root == nullptr) return 0;
+	else if (root->left_child != nullptr && root->right_child == nullptr) return 1 + count_nodes(root->left_child);
+	else if (root->left_child == nullptr && root->right_child != nullptr) return 1 + count_nodes(root->right_child);
+	else if (root->right_child != nullptr && root->left_child != nullptr) return count_nodes(root->right_child) + count_nodes(root->left_child);
 }
 
 int Tree::height()
