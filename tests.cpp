@@ -6,7 +6,7 @@
 
 using namespace std;
 
-string inorder()
+/*string inorder()
 {
 
 }
@@ -19,7 +19,7 @@ string preorder()
 string postorder()
 {
 
-}
+}*/
 
 void testAll()
 {
@@ -68,11 +68,15 @@ void testAll()
 	// tree
 	Tree tree = Tree(&root);
 
-	// tests 
-	tree.delete_node(14, &root);
-	assert(tree.search_node(14, &root) == nullptr);
-	tree.delete_node(20, &root);
-	assert(tree.search_node(20, &root) == nullptr);
+	Node* min = tree.FindMin(&n1);
+	assert(min->value == 13);
+	min = tree.FindMin(&n7);
+	assert(min->value == 7);
 
-	tree.insert(20, &root);
+	/*assert(tree.count_nodes == 13);
+	tree.delete_node(20, &root);
+	assert(tree.count_nodes == 12);*/
+
+	Node* node_found = tree.search_node(20, &root);
+	assert(node_found = &n4);
 }

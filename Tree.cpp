@@ -22,11 +22,12 @@ Node* Tree::get_node(int v)
 	return new_node; // this is a pointer to the new node created in this function
 }
 
-void Tree::insert(int v, Node* root)
+Node* Tree::insert(int v, Node* root)
 {
 	if (root == nullptr)
 	{
-		root = get_node(v);
+		Node* new_node = new Node(v);
+		root = new_node;
 	}
 	else
 	{
@@ -35,17 +36,17 @@ void Tree::insert(int v, Node* root)
 		else
 			insert(v, root->right_child);
 	}
+	return root;
 }
 
 Node* Tree::search_node(int v, Node* root)
 {
-	if (root->value == v) return root;
+	if (root->value == v || root == nullptr) return root;
 	else
 	{
 		if (v < root->value) search_node(v, root->left_child);
 		else search_node(v, root->right_child);
 	}
-	return nullptr; // if the node is not in the tree
 }
 
 void Tree::delete_node(int v, Node* root)
@@ -79,14 +80,18 @@ void Tree::delete_node(int v, Node* root)
 
 int Tree::count_nodes(Node *root)
 {
-	if (root == nullptr) return 0;
-	else if (root->left_child != nullptr && root->right_child == nullptr) return 1 + count_nodes(root->left_child);
-	else if (root->left_child == nullptr && root->right_child != nullptr) return 1 + count_nodes(root->right_child);
-	else if (root->right_child != nullptr && root->left_child != nullptr) return count_nodes(root->right_child) + count_nodes(root->left_child);
+	int sum = 0;
+	if (root != nullptr)
+	{
+		sum++;
+		sum = sum + count_nodes(root->left_child);
+		sum = sum + count_nodes(root->right_child);
+	}
+	return sum;
 }
 
 int Tree::height()
 {
-	//toooo implemeent
+	// TO DO 
 	return 0;
 }

@@ -30,7 +30,7 @@ public:
 	/* inserts a node in the binary search tree so that the relation of it didn't change. 
 	v is the value of the node and the tree is the node. 
 	We have to be carefull with the pointers !!! */
-	void insert(int v, Node* root);
+	Node* insert(int v, Node* root);
 
 	/* deletes a node from a binary search tree.
 	We have to be carefull with the pointers !!!
