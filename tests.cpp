@@ -39,34 +39,4 @@ void testAll()
 	tree.delete_node(14, n1);
 	assert(tree.count_nodes(n1) == 4);
 
-
-	//setting the pointers
-	/*n1->set_pointers(n2, n7);
-	n2->set_pointers(n5, n3);
-	n3->set_pointers(n4, nullptr);
-	n5->set_pointers(nullptr, n6);
-	n7->set_pointers(n10, n8);
-	n8->set_pointers(nullptr, n9);
-	n10->set_pointers(n11, nullptr);
-	n11->set_pointers(n13, n12);
-
-	n9->set_pointers(nullptr, nullptr); 
-	n12->set_pointers(nullptr, nullptr);
-	n13->set_pointers(nullptr, nullptr);
-	n4->set_pointers(nullptr, nullptr);
-	n6->set_pointers(nullptr, nullptr);
-
-	Tree tree = Tree(n1);
-
-	assert(tree.count_nodes(n1) == 13);
-
-	tree.delete_node(13, n1);
-	tree.delete_node(8, n1);
-
-	assert(tree.in_tree(13) == false);
-	assert(tree.in_tree(20) == true);
-	assert(tree.in_tree(8) == false);
-
-	tree.insert(2);
-	assert(tree.in_tree(2) == true);*/
 }

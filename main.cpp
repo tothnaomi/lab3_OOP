@@ -18,5 +18,7 @@ int main()
 	
 	testAll();
 
+    cout << "test over";
+
 	return 0;
 }
