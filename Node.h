@@ -23,7 +23,6 @@ public:
 	int get_value(Node* node);
 
 	/* setter for the pointers of an Object */
-	void set_pointers(Node* right_ptr, Node* left_ptr);
 
 	/*Traverse the tree in an inorder way:
 	The inorder traversal of a binary search tree involves visiting each of the nodes in the tree in the order:

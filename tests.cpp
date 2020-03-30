@@ -24,21 +24,24 @@ void testAll()
 	*/
 	
 	Node* n1 = new Node(12); // this is the root 
-	Node* n2 = new Node(17);
-	Node* n3 = new Node(13);
-	Node* n4 = new Node(14);
-	Node* n5 = new Node(20);
-	Node* n6 = new Node(18);
-	Node* n7 = new Node(5);
-	Node* n8 = new Node(3);
-	Node* n9 = new Node(1);
-	Node* n10 = new Node(7);
-	Node* n11 = new Node(9);
-	Node* n12 = new Node(8);
-	Node* n13 = new Node(11);
+
+	Tree tree = Tree(n1); // n1 is the root of this tree
+	tree.insert(13);
+	tree.insert(14);
+
+	assert(tree.count_nodes(n1) == 3);
+
+	tree.insert(5);
+	tree.insert(20);
+
+	assert(tree.count_nodes(n1) == 5);
+
+	tree.delete_node(14, n1);
+	assert(tree.count_nodes(n1) == 4);
+
 
 	//setting the pointers
-	n1->set_pointers(n2, n7);
+	/*n1->set_pointers(n2, n7);
 	n2->set_pointers(n5, n3);
 	n3->set_pointers(n4, nullptr);
 	n5->set_pointers(nullptr, n6);
@@ -60,10 +63,10 @@ void testAll()
 	tree.delete_node(13, n1);
 	tree.delete_node(8, n1);
 
-	assert(tree.in_tree(13, n1) == false);
-	assert(tree.in_tree(20, n1) == true);
-	assert(tree.in_tree(8, n1) == false);
+	assert(tree.in_tree(13) == false);
+	assert(tree.in_tree(20) == true);
+	assert(tree.in_tree(8) == false);
 
-	tree.insert(2, n1);
-	assert(tree.in_tree(2, n1) == true);
+	tree.insert(2);
+	assert(tree.in_tree(2) == true);*/
 }

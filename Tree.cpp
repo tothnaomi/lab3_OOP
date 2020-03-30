@@ -13,11 +13,11 @@ Node* Tree::FindMin(Node* node)
 }
 
 
-void Tree::insert(int v, Node* root)
+void Tree::insert(int v)
 {
-	/**/
-	Node* crt = root;
-	Node* parent = root;
+
+	Node* crt = this->root;
+	Node* parent = this->root;
 	bool exists = false;
 	
 	while (crt && !exists)
@@ -42,24 +42,24 @@ void Tree::insert(int v, Node* root)
 	}
 }
 
-bool Tree::in_tree(int v, Node* root)
+bool Tree::in_tree(int v)
 {
 	bool exists = false;
-	while (exists == false && root)
+	while (exists == false && this->root)
 	{
-		if (root->value == v) exists = true;
-		else if (v < root->value)
-			root = root->left_child;
+		if (this->root->value == v) exists = true;
+		else if (v < this->root->value)
+			this->root = this->root->left_child;
 		else
-			root = root->right_child;
+			this->root = this->root->right_child;
 	}
 	return exists; 
 }
 
 void Tree::delete_node(int v, Node* root)
 {
-	Node* current = root;
-	Node* parent = root;
+	Node* current = this->root;
+	Node* parent = this->root;
 	while (current != nullptr && current->value != v)
 	{
 		parent = current;

@@ -11,13 +11,13 @@ class Tree
 	/* I will use linked list and I will store the address of the root node because
 	this way I will have access to the every element of the tree (we have pointrs to left and right 
 	child). */
+	Node* root;
 
 public:
 
 	Tree(Node* node)
 	{
-		Node* root;
-		root = node;
+		this->root = node;
 	}
 
 
@@ -26,7 +26,7 @@ public:
 	/* inserts a node in the binary search tree so that the relation of it didn't change. 
 	v is the value of the node and the tree is the node. 
 	We have to be carefull with the pointers !!! */
-	void insert(int v, Node* root);
+	void insert(int v);
 
 	/* deletes a node from a binary search tree.
 	We have to be carefull with the pointers !!!
@@ -37,7 +37,7 @@ public:
 	void delete_node(int v, Node* root);
 
 	/* returns true, if the node with the value v is in the tree or return false if the node is not in the tree. */
-	bool in_tree(int v, Node* root);
+	bool in_tree(int v);
 
 	/* counts how many nodes in a tree are. We can count how many elements in our vector are (this will be
 	the number of nodes).

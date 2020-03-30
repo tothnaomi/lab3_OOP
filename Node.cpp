@@ -20,12 +20,6 @@ int Node::get_value(Node* node)
 }
 
 
-void Node::set_pointers(Node* right_ptr, Node* left_ptr)
-{
-	this->right_child = right_ptr;
-	this->left_child = left_ptr;
-}
-
 void Node::inorder(Node* n) /* Given a binary tree, print its nodes in inorder traversal*/
 {
 
