@@ -56,7 +56,7 @@ bool Tree::in_tree(int v)
 	return exists; 
 }
 
-void Tree::delete_node(int v, Node* root)
+void Tree::delete_node(int v, Node* node)
 {
 	Node* current = this->root;
 	Node* parent = this->root;
@@ -110,10 +110,10 @@ void Tree::delete_node(int v, Node* root)
 }
 
 
-int Tree::count_nodes(Node* root)
+int Tree::count_nodes(Node* node)
 {
 	int sum = 0;
-	if (root != nullptr)
+	if (this->root != nullptr)
 	{
 		sum++;
 		sum = sum + count_nodes(root->left_child);
