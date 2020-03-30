@@ -15,6 +15,7 @@ Node* Tree::FindMin(Node* node)
 
 void Tree::insert(int v, Node* root)
 {
+	/**/
 	Node* crt = root;
 	Node* parent = root;
 	bool exists = false;
